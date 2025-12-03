@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atminties žaidimas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pradinio ekrano -->
+        <div id="startScreen" class="screen active">
+            <h1>🎮 Atminties žaidimas</h1>
+            <p>Surask visas vienodų simbolių poras!</p>
+            
+            <div class="form-group">
+                <label for="playerName">Įvesk savo vardą:</label>
+                <input type="text" id="playerName" placeholder="Vardas" maxlength="20">
+            </div>
+            
+            <div class="form-group">
+                <label for="difficulty">Pasirink sunkumą:</label>
+                <select id="difficulty">
+                    <option value="easy">Lengvas (4x3 = 6 poros)</option>
+                    <option value="medium" selected>Vidutinis (4x4 = 8 poros)</option>
+                    <option value="hard">Sunkus (6x4 = 12 porų)</option>
+                </select>
+            </div>
+            
+            <button id="startButton" class="btn btn-primary">Pradėti žaidimą</button>
+            
+            <div class="best-scores">
+                <h3>Geriausi rezultatai (ši sesija):</h3>
+                <div id="scoresContainer">
+                    <p class="no-scores">Dar nėra rezultatų</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Žaidimo ekranas -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="game-info">
+                    <div class="info-item">
+                        <span class="label">Žaidėjas:</span>
+                        <span id="currentPlayer" class="value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Lygis:</span>
+                        <span id="currentDifficulty" class="value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Ėjimai:</span>
+                        <span id="moves" class="value">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Poros:</span>
+                        <span id="pairs" class="value">0/0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Laikas:</span>
+                        <span id="timer" class="value">00:00</span>
+                    </div>
+                </div>
+                <button id="quitButton" class="btn btn-secondary">Baigti žaidimą</button>
+            </div>
+
+            <div id="gameBoard" class="game-board"></div>
+        </div>
+
+        <!-- Pergalės ekranas -->
+        <div id="winScreen" class="screen">
+            <h1>🎉 Sveikiname!</h1>
+            <div id="winMessage"></div>
+            <div class="win-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Ėjimai:</span>
+                    <span id="finalMoves" class="stat-value">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Laikas:</span>
+                    <span id="finalTime" class="stat-value">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Taškai:</span>
+                    <span id="finalScore" class="stat-value">-</span>
+                </div>
+            </div>
+            <button id="playAgainButton" class="btn btn-primary">Žaisti dar kartą</button>
+            <button id="mainMenuButton" class="btn btn-secondary">Į pradinį meniu</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
